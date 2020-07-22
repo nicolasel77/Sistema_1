@@ -1,48 +1,63 @@
-﻿Imports System.IO
+﻿Public Class clsProductos
+    Public Sub New()
 
-Public Class clsProductos
-    Public Id As Integer
+    End Sub
 
-#Region " Devolver Datos "
-    Public Function Datos() As DataTable
-        Dim dt As New DataTable()
-        dt.Columns.Add("Id", GetType(Integer))
-        dt.Columns.Add("Nombre", GetType(String))
+#Region " Editar Datos "
 
-        Dim archivo As String = Application.StartupPath + "\Productos.txt"
+    Public Sub Agregar(ByVal Nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Productos (Nombre) VALUES('{Nombre_Nuevo}')", db)
 
-        If File.Exists(archivo) Then
-            Dim srProd As New StreamReader(archivo)
-            Dim vlinea As String = srProd.ReadLine
 
-            While vlinea IsNot Nothing
+        db.Open()
 
-                dt.Rows.Add(Codigo_Seleccionado(vlinea), Nombre_Seleccionado(vlinea))
+        dc.ExecuteNonQuery()
 
-                vlinea = srProd.ReadLine
+        db.Close()
+    End Sub
+    Public Sub Editar(ByVal Id As Integer, ByVal Nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"UPDATE Productos SET Nombre='{Nombre_Nuevo}' WHERE ID={Id}", db)
 
-            End While
-            srProd.Close()
 
-            Return dt
-        End If
-    End Function
+        db.Open()
+
+        dc.ExecuteNonQuery()
+
+        db.Close()
+    End Sub
+
+    Public Sub Borrar(ByVal Id As Integer)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("DELETE FROM Productos WHERE ID=" & Id, db)
+
+
+        db.Open()
+
+        dc.ExecuteNonQuery()
+
+        db.Close()
+    End Sub
 
 #End Region
+#Region " Devolver Datos "
+    Public Function Datos() As DataTable
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Productos", db)
 
-#Region " Editar Datos"
-    Public Sub Agregar()
+        Dim dt As New DataTable("Datos")
+        dat.Fill(dt)
 
-    End Sub
+        Return dt
+    End Function
 
-    Public Sub Editar()
+    Public Function Nombre_Producto(ByVal Id As Integer) As String
 
-    End Sub
+    End Function
 
-    Public Sub Borrar()
-        'Se va a borrar el id
-        MsgBox("Se borro el id " & Id)
-    End Sub
+    Public Function Maximo_Id() As Integer
 
+    End Function
 #End Region
 End Class

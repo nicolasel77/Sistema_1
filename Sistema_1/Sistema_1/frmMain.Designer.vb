@@ -22,6 +22,7 @@ Partial Class frmMain
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuProductos = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,19 +50,19 @@ Partial Class frmMain
         'mnuProductos
         '
         Me.mnuProductos.Name = "mnuProductos"
-        Me.mnuProductos.Size = New System.Drawing.Size(180, 22)
+        Me.mnuProductos.Size = New System.Drawing.Size(139, 22)
         Me.mnuProductos.Text = "Productos"
         '
         'mnuClientes
         '
         Me.mnuClientes.Name = "mnuClientes"
-        Me.mnuClientes.Size = New System.Drawing.Size(180, 22)
+        Me.mnuClientes.Size = New System.Drawing.Size(139, 22)
         Me.mnuClientes.Text = "Clientes"
         '
         'mnuProveedores
         '
         Me.mnuProveedores.Name = "mnuProveedores"
-        Me.mnuProveedores.Size = New System.Drawing.Size(180, 22)
+        Me.mnuProveedores.Size = New System.Drawing.Size(139, 22)
         Me.mnuProveedores.Text = "Proveedores"
         '
         'frmMain
@@ -70,6 +71,7 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1035, 613)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMain"
