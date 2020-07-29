@@ -57,7 +57,16 @@
     End Function
 
     Public Function Maximo_Id() As Integer
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim cm As New OleDb.OleDbCommand("SELECT MAX(Id) FROM Productos", db)
 
+        Dim d As Object = Nothing
+
+        cm.CommandType = CommandType.Text
+        db.Open()
+        d = cm.ExecuteScalar()
+
+        Return CInt(d)
     End Function
 #End Region
 End Class

@@ -7,38 +7,26 @@
     Private Sub Cargar_LST()
         Dim dt As DataTable = clProd.Datos()
 
-        With lstProductos
-            .Items.Clear()
-
-            For Each dr As DataRow In dt.Rows
-                .Items.Add(dr.Item("Id") & ". " & dr.Item("Nombre"))
-            Next
+        With grdProductos
+            .MostrarDatos(dt, True)
+            .ColW(0) = 60
+            .ColW(1) = 150
+            .FixCols = 1
         End With
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If lstProductos.Text.Length Then
-            Dim i As Integer = Codigo_Seleccionado(lstProductos.Text)
+    Private Sub grdProductos_Editado(f As Short, c As Short, a As Object) Handles grdProductos.Editado
+        Dim vId As Integer = grdProductos.Texto(f, grdProductos.ColIndex("Id"))
 
-            clProd.Borrar(i)
-            lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
+        If grdProductos.EsUltimaF Then
+            clProd.Agregar(a)
+            grdProductos.Texto(f, grdProductos.ColIndex("Id")) = clProd.Maximo_Id
+            grdProductos.AgregarFila()
+            grdProductos.ActivarCelda(f + 1, c)
+        Else
+            clProd.Editar(vId, a)
         End If
-    End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If lstProductos.Text.Length And txtEdicion.Text.Length Then
-            Dim i As Integer = Codigo_Seleccionado(lstProductos.Text)
-
-            clProd.Editar(i, txtEdicion.Text)
-            lstProductos.Items.Insert(lstProductos.SelectedIndex, $"{i}. {txtEdicion.Text}")
-            lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
-        End If
-    End Sub
-
-    Private Sub cmdAgregar_Click(sender As Object, e As EventArgs) Handles cmdAgregar.Click
-        If txtEdicion.Text.Length Then
-            clProd.Agregar(txtEdicion.Text)
-            Cargar_LST()
-        End If
+        grdProductos.Texto(f, c) = a
     End Sub
 End Class

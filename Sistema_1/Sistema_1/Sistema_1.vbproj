@@ -51,6 +51,13 @@
     <ApplicationIcon>icono.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.Common">
+      <HintPath>..\SpeedGrilla\C1.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.6.20113.647, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SpeedGrilla\C1.Win.C1FlexGrid.4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -135,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpeedGrilla\SpeedGrilla.vbproj">
+      <Project>{64f92811-4680-4543-a345-0f68983286e2}</Project>
+      <Name>SpeedGrilla</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
