@@ -24,6 +24,8 @@ Partial Class frmProductos
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos))
         Me.grdProductos = New Grilla2.SpeedGrilla()
+        Me.txtTecla = New System.Windows.Forms.TextBox()
+        Me.lblTecla = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'grdProductos
@@ -58,23 +60,46 @@ Partial Class frmProductos
         Me.grdProductos.Redraw = True
         Me.grdProductos.Row = 0
         Me.grdProductos.Rows = 50
-        Me.grdProductos.Size = New System.Drawing.Size(885, 597)
+        Me.grdProductos.Size = New System.Drawing.Size(885, 571)
         Me.grdProductos.TabIndex = 0
+        '
+        'txtTecla
+        '
+        Me.txtTecla.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtTecla.Location = New System.Drawing.Point(12, 589)
+        Me.txtTecla.Name = "txtTecla"
+        Me.txtTecla.Size = New System.Drawing.Size(100, 20)
+        Me.txtTecla.TabIndex = 1
+        '
+        'lblTecla
+        '
+        Me.lblTecla.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTecla.AutoSize = True
+        Me.lblTecla.Location = New System.Drawing.Point(118, 592)
+        Me.lblTecla.Name = "lblTecla"
+        Me.lblTecla.Size = New System.Drawing.Size(39, 13)
+        Me.lblTecla.TabIndex = 2
+        Me.lblTecla.Text = "Label1"
         '
         'frmProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(909, 621)
+        Me.Controls.Add(Me.lblTecla)
+        Me.Controls.Add(Me.txtTecla)
         Me.Controls.Add(Me.grdProductos)
         Me.Name = "frmProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Productos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
 
     Friend WithEvents grdProductos As Grilla2.SpeedGrilla
+    Friend WithEvents txtTecla As TextBox
+    Friend WithEvents lblTecla As Label
 End Class
