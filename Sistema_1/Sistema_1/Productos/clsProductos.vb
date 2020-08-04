@@ -9,7 +9,6 @@
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dc As New OleDb.OleDbCommand($"INSERT INTO Productos (Nombre) VALUES('{Nombre_Nuevo}')", db)
 
-
         db.Open()
 
         dc.ExecuteNonQuery()
@@ -19,7 +18,6 @@
     Public Sub Editar(ByVal Id As Integer, ByVal Nombre_Nuevo As String)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dc As New OleDb.OleDbCommand($"UPDATE Productos SET Nombre='{Nombre_Nuevo}' WHERE ID={Id}", db)
-
 
         db.Open()
 
@@ -32,7 +30,6 @@
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dc As New OleDb.OleDbCommand("DELETE FROM Productos WHERE ID=" & Id, db)
 
-
         db.Open()
 
         dc.ExecuteNonQuery()
@@ -42,9 +39,19 @@
 
 #End Region
 #Region " Devolver Datos "
-    Public Function Datos() As DataTable
+    Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
+        Dim vFiltro As String = ""
+
+        If Id <> 0 Then
+            vFiltro = $" Id={Id} OR  Nombre LIKE '%{Id}%'"
+        Else
+            If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%'"
+        End If
+
+        If vFiltro.Length Then vFiltro = " WHERE " & vFiltro
+
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Productos", db)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Productos" & vFiltro, db)
 
         Dim dt As New DataTable("Datos")
         dat.Fill(dt)

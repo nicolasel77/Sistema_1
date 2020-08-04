@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmProductos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,11 @@ Partial Class frmProductos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos))
         Me.grdProductos = New Grilla2.SpeedGrilla()
-        Me.txtTecla = New System.Windows.Forms.TextBox()
-        Me.lblTecla = New System.Windows.Forms.Label()
+        Me.txtBuscador = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'grdProductos
@@ -63,31 +62,21 @@ Partial Class frmProductos
         Me.grdProductos.Size = New System.Drawing.Size(885, 571)
         Me.grdProductos.TabIndex = 0
         '
-        'txtTecla
+        'txtBuscador
         '
-        Me.txtTecla.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtTecla.Location = New System.Drawing.Point(12, 589)
-        Me.txtTecla.Name = "txtTecla"
-        Me.txtTecla.Size = New System.Drawing.Size(100, 20)
-        Me.txtTecla.TabIndex = 1
-        '
-        'lblTecla
-        '
-        Me.lblTecla.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblTecla.AutoSize = True
-        Me.lblTecla.Location = New System.Drawing.Point(118, 592)
-        Me.lblTecla.Name = "lblTecla"
-        Me.lblTecla.Size = New System.Drawing.Size(39, 13)
-        Me.lblTecla.TabIndex = 2
-        Me.lblTecla.Text = "Label1"
+        Me.txtBuscador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtBuscador.Location = New System.Drawing.Point(12, 589)
+        Me.txtBuscador.Name = "txtBuscador"
+        Me.txtBuscador.Size = New System.Drawing.Size(173, 13)
+        Me.txtBuscador.TabIndex = 1
         '
         'frmProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(909, 621)
-        Me.Controls.Add(Me.lblTecla)
-        Me.Controls.Add(Me.txtTecla)
+        Me.Controls.Add(Me.txtBuscador)
         Me.Controls.Add(Me.grdProductos)
         Me.Name = "frmProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -100,6 +89,5 @@ Partial Class frmProductos
 
 
     Friend WithEvents grdProductos As Grilla2.SpeedGrilla
-    Friend WithEvents txtTecla As TextBox
-    Friend WithEvents lblTecla As Label
+    Friend WithEvents txtBuscador As TextBox
 End Class
