@@ -33,16 +33,39 @@
     Private Sub grdStock_Editado(f As Short, c As Short, a As Object) Handles grdStock.Editado
         Dim vId As Integer = grdStock.Texto(f, grdStock.ColIndex("Id"))
 
-        If grdStock.EsUltimaF Then
-            clStock.Agregar(a)
-            grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Maximo_Id
-            grdStock.AgregarFila()
-            grdStock.ActivarCelda(f + 1, c)
-        Else
-            'clStock.Editar(vId, a)
-        End If
+        With grdStock
+            Select Case c
+                Case .ColIndex("Fecha")
+                    .Texto(f, c) = a
+                    .ActivarCelda(f, .ColIndex("Id_Producto"))
 
-        grdStock.Texto(f, c) = a
+                Case .ColIndex("Id_Producto")
+                    Dim vNombre As String = clStock.Nombre_Producto(a)
+                    If vNombre.Length Then
+                        .Texto(f, c) = a
+                        .Texto(f, .ColIndex("Nombre")) = vNombre
+                        .ActivarCelda(f, .ColIndex("Cantidad"))
+                    Else
+                        .ErrorEnTxt()
+                    End If
+
+                Case .ColIndex("Cantidad")
+                    'Para hacer:
+                    ' Validar fecha y producto
+
+                    .Texto(f, c) = a
+                    If vId <> 0 Then
+                        'clStock.Editar("j")
+                    Else
+                        'clStock.Agregar("j")
+
+                        'Escribir el Id de la nueva fila en la columna Id
+                        .AgregarFila()
+                    End If
+                    .ActivarCelda(f + 1, .ColIndex("Fecha"))
+            End Select
+        End With
+
     End Sub
 
     Private Sub grdStock_KeyUp(sender As Object, e As Short) Handles grdStock.KeyUp

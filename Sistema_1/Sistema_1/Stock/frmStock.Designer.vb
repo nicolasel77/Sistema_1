@@ -26,6 +26,7 @@ Partial Class frmStock
         Me.grdStock = New Grilla2.SpeedGrilla()
         Me.txtBuscador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.UcFecha1 = New Sistema_1.ucFecha()
         Me.SuspendLayout()
         '
         'grdStock
@@ -82,11 +83,19 @@ Partial Class frmStock
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Buscador general:"
         '
+        'UcFecha1
+        '
+        Me.UcFecha1.Location = New System.Drawing.Point(761, 21)
+        Me.UcFecha1.Name = "UcFecha1"
+        Me.UcFecha1.Size = New System.Drawing.Size(136, 124)
+        Me.UcFecha1.TabIndex = 3
+        '
         'frmStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(909, 621)
+        Me.Controls.Add(Me.UcFecha1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtBuscador)
         Me.Controls.Add(Me.grdStock)
@@ -103,4 +112,5 @@ Partial Class frmStock
     Friend WithEvents grdStock As Grilla2.SpeedGrilla
     Friend WithEvents txtBuscador As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents UcFecha1 As ucFecha
 End Class

@@ -16,6 +16,7 @@
 
         db.Close()
     End Sub
+
     Public Sub Editar(ByVal Id As Integer, ByVal Fecha As Date, Id_Producto As Integer, Cantidad As Integer)
         If Id <> 0 Then
             'Solo ejecutar si hay un Id 
@@ -73,7 +74,18 @@
     End Function
 
     Public Function Nombre_Producto(ByVal Id As Integer) As String
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("SELECT Nombre FROM Productos WHERE Id=" & Id, db)
 
+        db.Open()
+
+        Dim s As Object
+        s = dc.ExecuteScalar()
+
+        If IsNothing(s) Then s = ""
+
+        db.Close()
+        Return s
     End Function
 
     Public Function Maximo_Id() As Integer

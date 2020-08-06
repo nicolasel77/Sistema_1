@@ -83,6 +83,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\ucFecha.Designer.vb">
+      <DependentUpon>ucFecha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucFecha.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controles\ucFecha.resx">
+      <DependentUpon>ucFecha.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
