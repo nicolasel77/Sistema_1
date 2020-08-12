@@ -7,13 +7,22 @@
 
     Public Sub Agregar(ByVal Nombre_Nuevo As String)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Stop
+        Dim vId As Integer = Maximo_Id()
+
         Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Nombre) VALUES('{Nombre_Nuevo}')", db)
 
         db.Open()
 
         dc.ExecuteNonQuery()
 
+        Dim nId As Integer = Maximo_Id()
+
+        If vId <> nId Then
+            'Todo ok
+        Else
+            'No se agrego
+            MsgBox("No se agrego el registro")
+        End If
         db.Close()
     End Sub
 

@@ -27,16 +27,32 @@
             .ColW(0) = 60
             .ColW(1) = 150
             .FixCols = 1
+
+            totales()
+        End With
+    End Sub
+
+    Private Sub Totales()
+        With grdStock
+            Dim vCant As Integer
+            For i As Integer = 1 To .Rows - 2
+                vCant = vCant + .Texto(i, .ColIndex("Cantidad"))
+            Next
+            lblRegistros.Text = "Registros: " & .Rows - 2 & " Cantidad: " & vCant
         End With
     End Sub
 
     Private Sub grdStock_Editado(f As Short, c As Short, a As Object) Handles grdStock.Editado
         Dim vId As Integer = grdStock.Texto(f, grdStock.ColIndex("Id"))
+        Dim vFecha As Date = grdStock.Texto(f, grdStock.ColIndex("Fecha"))
+        Dim vProd As Integer = grdStock.Texto(f, grdStock.ColIndex("Id_Producto"))
+        Dim vCant As Integer = grdStock.Texto(f, grdStock.ColIndex("Cantidad"))
 
         With grdStock
             Select Case c
                 Case .ColIndex("Fecha")
                     .Texto(f, c) = a
+                    If vId Then clStock.Editar(vId, a, vProd, vCant)
                     .ActivarCelda(f, .ColIndex("Id_Producto"))
 
                 Case .ColIndex("Id_Producto")
@@ -44,25 +60,41 @@
                     If vNombre.Length Then
                         .Texto(f, c) = a
                         .Texto(f, .ColIndex("Nombre")) = vNombre
+                        If vId Then clStock.Editar(vId, vFecha, a, vCant)
                         .ActivarCelda(f, .ColIndex("Cantidad"))
                     Else
                         .ErrorEnTxt()
                     End If
 
                 Case .ColIndex("Cantidad")
-                    'Para hacer:
-                    ' Validar fecha y producto
+                    If vId = 0 Then
+                        'Es nuevo
+                        If vFecha > #1/1/2010# Then
+                            If vProd <> 0 Then
+                                'Es valido, agregar
 
-                    .Texto(f, c) = a
-                    If vId <> 0 Then
-                        'clStock.Editar("j")
+                                'clStock.Agregar()
+
+                                .Texto(f, c) = a
+                                .Texto(f, .ColIndex("Id")) = clStock.Maximo_Id
+                                .AgregarFila()
+                                lblRegistros.Text = "Registros: " & .Rows - 2
+
+                                .ActivarCelda(f + 1, .ColIndex("Fecha"))
+                            Else
+                                MsgBox("Debe ingresar un producto, culeao.")
+                                .ActivarCelda(f, .ColIndex("ID_Producto"))
+                            End If
+                        Else
+                            MsgBox("Debe ingresar una fecha válida, culeao.")
+                            .ActivarCelda(f, .ColIndex("Fecha"))
+                        End If
                     Else
-                        'clStock.Agregar("j")
-
-                        'Escribir el Id de la nueva fila en la columna Id
-                        .AgregarFila()
+                        'No es nuevo
+                        clStock.Editar(vId, vFecha, vProd, a)
+                        .ActivarCelda(f + 1, c)
                     End If
-                    .ActivarCelda(f + 1, .ColIndex("Fecha"))
+                    Totales()
             End Select
         End With
 
@@ -78,6 +110,7 @@
                         'Borrar el registro
                         clStock.Borrar(grdStock.Texto(, 0))
                         grdStock.BorrarFila()
+                        lblRegistros.Text = "Registros: " & grdStock.Rows - 2
                     End If
                 End If
             Case 32
@@ -88,5 +121,9 @@
 
     Private Sub txtBuscador_TextChanged(sender As Object, e As EventArgs) Handles txtBuscador.TextChanged
         Cargar_LST()
+    End Sub
+
+    Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint
+
     End Sub
 End Class

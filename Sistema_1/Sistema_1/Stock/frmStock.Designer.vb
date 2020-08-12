@@ -27,15 +27,20 @@ Partial Class frmStock
         Me.txtBuscador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.UcFecha1 = New Sistema_1.ucFecha()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblRegistros = New System.Windows.Forms.ToolStripStatusLabel()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'grdStock
         '
         Me.grdStock.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.None
         Me.grdStock.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.SingleColumn
-        Me.grdStock.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdStock.AutoResize = False
         Me.grdStock.bColor = System.Drawing.SystemColors.Window
         Me.grdStock.bColorSel = System.Drawing.SystemColors.Highlight
@@ -45,6 +50,7 @@ Partial Class frmStock
         Me.grdStock.Cols = 10
         Me.grdStock.DataMember = ""
         Me.grdStock.DataSource = Nothing
+        Me.grdStock.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdStock.EnableEdicion = True
         Me.grdStock.Encabezado = ""
         Me.grdStock.fColor = System.Drawing.SystemColors.Control
@@ -53,7 +59,7 @@ Partial Class frmStock
         Me.grdStock.FuenteEncabezado = Nothing
         Me.grdStock.FuentePieDePagina = Nothing
         Me.grdStock.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.None
-        Me.grdStock.Location = New System.Drawing.Point(12, 12)
+        Me.grdStock.Location = New System.Drawing.Point(0, 0)
         Me.grdStock.MenuActivado = False
         Me.grdStock.Name = "grdStock"
         Me.grdStock.PieDePagina = "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Page {0} of {1}"
@@ -61,23 +67,23 @@ Partial Class frmStock
         Me.grdStock.Redraw = True
         Me.grdStock.Row = 0
         Me.grdStock.Rows = 50
-        Me.grdStock.Size = New System.Drawing.Size(604, 597)
+        Me.grdStock.Size = New System.Drawing.Size(620, 639)
         Me.grdStock.TabIndex = 0
         '
         'txtBuscador
         '
-        Me.txtBuscador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtBuscador.Location = New System.Drawing.Point(736, 596)
+        Me.txtBuscador.Location = New System.Drawing.Point(103, 623)
         Me.txtBuscador.Name = "txtBuscador"
         Me.txtBuscador.Size = New System.Drawing.Size(161, 13)
         Me.txtBuscador.TabIndex = 1
         '
         'Label1
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(637, 596)
+        Me.Label1.Location = New System.Drawing.Point(4, 623)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 13)
         Me.Label1.TabIndex = 2
@@ -85,24 +91,68 @@ Partial Class frmStock
         '
         'UcFecha1
         '
-        Me.UcFecha1.Location = New System.Drawing.Point(761, 21)
+        Me.UcFecha1.Location = New System.Drawing.Point(3, 3)
         Me.UcFecha1.Name = "UcFecha1"
         Me.UcFecha1.Size = New System.Drawing.Size(136, 124)
         Me.UcFecha1.TabIndex = 3
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SplitContainer1.BackColor = System.Drawing.Color.DimGray
+        Me.SplitContainer1.Location = New System.Drawing.Point(12, 12)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.grdStock)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control
+        Me.SplitContainer1.Panel2.Controls.Add(Me.UcFecha1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.txtBuscador)
+        Me.SplitContainer1.Size = New System.Drawing.Size(902, 639)
+        Me.SplitContainer1.SplitterDistance = 620
+        Me.SplitContainer1.SplitterWidth = 8
+        Me.SplitContainer1.TabIndex = 4
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblRegistros})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 654)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(926, 22)
+        Me.StatusStrip1.TabIndex = 5
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblRegistros
+        '
+        Me.lblRegistros.Name = "lblRegistros"
+        Me.lblRegistros.Size = New System.Drawing.Size(55, 17)
+        Me.lblRegistros.Text = "Registros"
         '
         'frmStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(909, 621)
-        Me.Controls.Add(Me.UcFecha1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtBuscador)
-        Me.Controls.Add(Me.grdStock)
+        Me.ClientSize = New System.Drawing.Size(926, 676)
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "frmStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stock"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -113,4 +163,7 @@ Partial Class frmStock
     Friend WithEvents txtBuscador As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents UcFecha1 As ucFecha
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblRegistros As ToolStripStatusLabel
 End Class
