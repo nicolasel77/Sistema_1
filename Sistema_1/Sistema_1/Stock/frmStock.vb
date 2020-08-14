@@ -7,9 +7,8 @@
         Cargar_LST()
     End Sub
 
-    Private Sub Cargar_LST()
+    Private Sub Cargar_LST(Optional fFecha As String = "")
         Dim fId As Integer = 0
-        Dim fFecha As String = ""
         Dim fNombre As String = ""
 
         If txtBuscador.Text.Length Then
@@ -28,7 +27,7 @@
             .ColW(1) = 150
             .FixCols = 1
 
-            totales()
+            Totales()
         End With
     End Sub
 
@@ -123,7 +122,14 @@
         Cargar_LST()
     End Sub
 
-    Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint
+    Private Sub filtro(sender As Object, e As EventArgs) Handles cmdFiltro.Click
+        Dim fFecha As String = ""
 
+        If chFecha.Checked = True Then fFecha = $"Fecha=#{mnFecha.SelectionRange.Start.ToString("MM/dd/yy")}#"
+
+
+        Cargar_LST(fFecha)
     End Sub
+
+
 End Class

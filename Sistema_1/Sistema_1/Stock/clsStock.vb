@@ -66,9 +66,17 @@
         Dim vFiltro As String = ""
 
         If Id <> 0 Then
-            vFiltro = $" Id={Id} OR Id_Producto={Id_Producto} OR Nombre LIKE '%{Id}%'"
+            vFiltro = $" Id={Id} OR Id_Producto={Id_Producto} OR Nombre LIKE '%{Id}%' "
         Else
-            If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%'"
+            If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%' "
+        End If
+
+        If Fecha.Length Then
+            If vFiltro.Length Then
+                vFiltro = vFiltro & " OR " & Fecha
+            Else
+                vFiltro = Fecha
+            End If
         End If
 
         If vFiltro.Length Then vFiltro = " WHERE " & vFiltro

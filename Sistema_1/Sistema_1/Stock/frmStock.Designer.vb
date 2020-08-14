@@ -26,8 +26,10 @@ Partial Class frmStock
         Me.grdStock = New Grilla2.SpeedGrilla()
         Me.txtBuscador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.UcFecha1 = New Sistema_1.ucFecha()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.chFecha = New System.Windows.Forms.CheckBox()
+        Me.cmdFiltro = New System.Windows.Forms.Button()
+        Me.mnFecha = New System.Windows.Forms.MonthCalendar()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblRegistros = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,58 +69,80 @@ Partial Class frmStock
         Me.grdStock.Redraw = True
         Me.grdStock.Row = 0
         Me.grdStock.Rows = 50
-        Me.grdStock.Size = New System.Drawing.Size(620, 639)
+        Me.grdStock.Size = New System.Drawing.Size(618, 637)
         Me.grdStock.TabIndex = 0
         '
         'txtBuscador
         '
-        Me.txtBuscador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtBuscador.Location = New System.Drawing.Point(103, 623)
+        Me.txtBuscador.Location = New System.Drawing.Point(108, 217)
         Me.txtBuscador.Name = "txtBuscador"
-        Me.txtBuscador.Size = New System.Drawing.Size(161, 13)
+        Me.txtBuscador.Size = New System.Drawing.Size(93, 13)
         Me.txtBuscador.TabIndex = 1
         '
         'Label1
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 623)
+        Me.Label1.Location = New System.Drawing.Point(9, 217)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 13)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Buscador general:"
-        '
-        'UcFecha1
-        '
-        Me.UcFecha1.Location = New System.Drawing.Point(3, 3)
-        Me.UcFecha1.Name = "UcFecha1"
-        Me.UcFecha1.Size = New System.Drawing.Size(136, 124)
-        Me.UcFecha1.TabIndex = 3
         '
         'SplitContainer1
         '
         Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SplitContainer1.BackColor = System.Drawing.Color.DimGray
+        Me.SplitContainer1.BackColor = System.Drawing.Color.LightGray
+        Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.Location = New System.Drawing.Point(12, 12)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control
         Me.SplitContainer1.Panel1.Controls.Add(Me.grdStock)
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control
-        Me.SplitContainer1.Panel2.Controls.Add(Me.UcFecha1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.chFecha)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.cmdFiltro)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.mnFecha)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtBuscador)
         Me.SplitContainer1.Size = New System.Drawing.Size(902, 639)
         Me.SplitContainer1.SplitterDistance = 620
         Me.SplitContainer1.SplitterWidth = 8
         Me.SplitContainer1.TabIndex = 4
+        '
+        'chFecha
+        '
+        Me.chFecha.AutoSize = True
+        Me.chFecha.Location = New System.Drawing.Point(12, 14)
+        Me.chFecha.Name = "chFecha"
+        Me.chFecha.Size = New System.Drawing.Size(84, 17)
+        Me.chFecha.TabIndex = 6
+        Me.chFecha.Text = "Filtrar Fecha"
+        Me.chFecha.UseVisualStyleBackColor = True
+        '
+        'cmdFiltro
+        '
+        Me.cmdFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdFiltro.Location = New System.Drawing.Point(9, 236)
+        Me.cmdFiltro.Name = "cmdFiltro"
+        Me.cmdFiltro.Size = New System.Drawing.Size(192, 23)
+        Me.cmdFiltro.TabIndex = 5
+        Me.cmdFiltro.Text = "Filtrar"
+        Me.cmdFiltro.UseVisualStyleBackColor = True
+        '
+        'mnFecha
+        '
+        Me.mnFecha.Location = New System.Drawing.Point(9, 43)
+        Me.mnFecha.Name = "mnFecha"
+        Me.mnFecha.TabIndex = 4
         '
         'StatusStrip1
         '
@@ -162,8 +186,10 @@ Partial Class frmStock
     Friend WithEvents grdStock As Grilla2.SpeedGrilla
     Friend WithEvents txtBuscador As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents UcFecha1 As ucFecha
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblRegistros As ToolStripStatusLabel
+    Friend WithEvents mnFecha As MonthCalendar
+    Friend WithEvents chFecha As CheckBox
+    Friend WithEvents cmdFiltro As Button
 End Class
