@@ -22,62 +22,53 @@ Partial Class ucFecha
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.lblFecha = New System.Windows.Forms.Label()
-        Me.lblHora = New System.Windows.Forms.Label()
-        Me.tiHora = New System.Windows.Forms.Timer(Me.components)
+        Me.lblSeleccion = New System.Windows.Forms.Label()
+        Me.chDevolver = New System.Windows.Forms.CheckBox()
+        Me.mntFecha = New System.Windows.Forms.MonthCalendar()
         Me.SuspendLayout()
         '
-        'lblTitulo
+        'lblSeleccion
         '
-        Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Location = New System.Drawing.Point(3, 0)
-        Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(53, 13)
-        Me.lblTitulo.TabIndex = 0
-        Me.lblTitulo.Text = "Relojasso"
+        Me.lblSeleccion.AutoSize = True
+        Me.lblSeleccion.Location = New System.Drawing.Point(3, 191)
+        Me.lblSeleccion.Name = "lblSeleccion"
+        Me.lblSeleccion.Size = New System.Drawing.Size(0, 13)
+        Me.lblSeleccion.TabIndex = 0
         '
-        'lblFecha
+        'chDevolver
         '
-        Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(17, 27)
-        Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(39, 13)
-        Me.lblFecha.TabIndex = 1
-        Me.lblFecha.Text = "Label1"
+        Me.chDevolver.AutoSize = True
+        Me.chDevolver.Checked = True
+        Me.chDevolver.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chDevolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.chDevolver.Location = New System.Drawing.Point(3, 0)
+        Me.chDevolver.Name = "chDevolver"
+        Me.chDevolver.Size = New System.Drawing.Size(54, 17)
+        Me.chDevolver.TabIndex = 1
+        Me.chDevolver.Text = "Fecha"
+        Me.chDevolver.UseVisualStyleBackColor = True
         '
-        'lblHora
+        'mntFecha
         '
-        Me.lblHora.AutoSize = True
-        Me.lblHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHora.Location = New System.Drawing.Point(16, 55)
-        Me.lblHora.Name = "lblHora"
-        Me.lblHora.Size = New System.Drawing.Size(57, 20)
-        Me.lblHora.TabIndex = 1
-        Me.lblHora.Text = "Label1"
-        '
-        'tiHora
-        '
-        Me.tiHora.Enabled = True
-        Me.tiHora.Interval = 1000
+        Me.mntFecha.Location = New System.Drawing.Point(3, 20)
+        Me.mntFecha.Name = "mntFecha"
+        Me.mntFecha.TabIndex = 2
         '
         'ucFecha
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.lblHora)
-        Me.Controls.Add(Me.lblFecha)
-        Me.Controls.Add(Me.lblTitulo)
+        Me.Controls.Add(Me.mntFecha)
+        Me.Controls.Add(Me.chDevolver)
+        Me.Controls.Add(Me.lblSeleccion)
         Me.Name = "ucFecha"
-        Me.Size = New System.Drawing.Size(137, 104)
+        Me.Size = New System.Drawing.Size(201, 215)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents lblTitulo As Label
-    Friend WithEvents lblFecha As Label
-    Friend WithEvents lblHora As Label
-    Friend WithEvents tiHora As Timer
+    Friend WithEvents lblSeleccion As Label
+    Friend WithEvents chDevolver As CheckBox
+    Friend WithEvents mntFecha As MonthCalendar
 End Class

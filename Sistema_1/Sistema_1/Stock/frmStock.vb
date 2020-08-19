@@ -123,12 +123,7 @@
     End Sub
 
     Private Sub filtro(sender As Object, e As EventArgs) Handles cmdFiltro.Click
-        Dim fFecha As String = ""
-
-        If chFecha.Checked = True Then fFecha = $"Fecha=#{mnFecha.SelectionRange.Start.ToString("MM/dd/yy")}#"
-
-
-        Cargar_LST(fFecha)
+        Cargar_LST(ucFecha.Devolver_Cadena)
     End Sub
 
 

@@ -27,11 +27,10 @@ Partial Class frmStock
         Me.txtBuscador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.chFecha = New System.Windows.Forms.CheckBox()
         Me.cmdFiltro = New System.Windows.Forms.Button()
-        Me.mnFecha = New System.Windows.Forms.MonthCalendar()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblRegistros = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ucFecha = New Sistema_1.ucFecha()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -75,7 +74,7 @@ Partial Class frmStock
         'txtBuscador
         '
         Me.txtBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtBuscador.Location = New System.Drawing.Point(108, 217)
+        Me.txtBuscador.Location = New System.Drawing.Point(108, 228)
         Me.txtBuscador.Name = "txtBuscador"
         Me.txtBuscador.Size = New System.Drawing.Size(93, 13)
         Me.txtBuscador.TabIndex = 1
@@ -83,7 +82,7 @@ Partial Class frmStock
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 217)
+        Me.Label1.Location = New System.Drawing.Point(9, 228)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 13)
         Me.Label1.TabIndex = 2
@@ -108,9 +107,8 @@ Partial Class frmStock
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control
-        Me.SplitContainer1.Panel2.Controls.Add(Me.chFecha)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ucFecha)
         Me.SplitContainer1.Panel2.Controls.Add(Me.cmdFiltro)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.mnFecha)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtBuscador)
         Me.SplitContainer1.Size = New System.Drawing.Size(902, 639)
@@ -118,31 +116,15 @@ Partial Class frmStock
         Me.SplitContainer1.SplitterWidth = 8
         Me.SplitContainer1.TabIndex = 4
         '
-        'chFecha
-        '
-        Me.chFecha.AutoSize = True
-        Me.chFecha.Location = New System.Drawing.Point(12, 14)
-        Me.chFecha.Name = "chFecha"
-        Me.chFecha.Size = New System.Drawing.Size(84, 17)
-        Me.chFecha.TabIndex = 6
-        Me.chFecha.Text = "Filtrar Fecha"
-        Me.chFecha.UseVisualStyleBackColor = True
-        '
         'cmdFiltro
         '
         Me.cmdFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmdFiltro.Location = New System.Drawing.Point(9, 236)
+        Me.cmdFiltro.Location = New System.Drawing.Point(9, 247)
         Me.cmdFiltro.Name = "cmdFiltro"
         Me.cmdFiltro.Size = New System.Drawing.Size(192, 23)
         Me.cmdFiltro.TabIndex = 5
         Me.cmdFiltro.Text = "Filtrar"
         Me.cmdFiltro.UseVisualStyleBackColor = True
-        '
-        'mnFecha
-        '
-        Me.mnFecha.Location = New System.Drawing.Point(9, 43)
-        Me.mnFecha.Name = "mnFecha"
-        Me.mnFecha.TabIndex = 4
         '
         'StatusStrip1
         '
@@ -158,6 +140,13 @@ Partial Class frmStock
         Me.lblRegistros.Name = "lblRegistros"
         Me.lblRegistros.Size = New System.Drawing.Size(55, 17)
         Me.lblRegistros.Text = "Registros"
+        '
+        'ucFecha
+        '
+        Me.ucFecha.Location = New System.Drawing.Point(3, 3)
+        Me.ucFecha.Name = "ucFecha"
+        Me.ucFecha.Size = New System.Drawing.Size(198, 219)
+        Me.ucFecha.TabIndex = 6
         '
         'frmStock
         '
@@ -189,7 +178,6 @@ Partial Class frmStock
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblRegistros As ToolStripStatusLabel
-    Friend WithEvents mnFecha As MonthCalendar
-    Friend WithEvents chFecha As CheckBox
     Friend WithEvents cmdFiltro As Button
+    Friend WithEvents ucFecha As ucFecha
 End Class
