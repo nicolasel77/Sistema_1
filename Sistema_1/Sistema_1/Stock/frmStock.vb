@@ -126,5 +126,7 @@
         Cargar_LST(ucFecha.Devolver_Cadena)
     End Sub
 
-
+    Private Sub ucFecha_Cambio_Fecha() Handles ucFecha.Cambio_Fecha
+        Cargar_LST(ucFecha.Devolver_Cadena)
+    End Sub
 End Class
