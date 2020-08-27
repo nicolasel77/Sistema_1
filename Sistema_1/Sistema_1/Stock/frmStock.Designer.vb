@@ -27,10 +27,10 @@ Partial Class frmStock
         Me.txtBuscador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ucFecha = New Sistema_1.ucFecha()
         Me.cmdFiltro = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblRegistros = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ucFecha = New Sistema_1.ucFecha()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -116,6 +116,15 @@ Partial Class frmStock
         Me.SplitContainer1.SplitterWidth = 8
         Me.SplitContainer1.TabIndex = 4
         '
+        'ucFecha
+        '
+        Me.ucFecha.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ucFecha.Location = New System.Drawing.Point(3, 3)
+        Me.ucFecha.Name = "ucFecha"
+        Me.ucFecha.Size = New System.Drawing.Size(266, 219)
+        Me.ucFecha.TabIndex = 6
+        '
         'cmdFiltro
         '
         Me.cmdFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -140,13 +149,6 @@ Partial Class frmStock
         Me.lblRegistros.Name = "lblRegistros"
         Me.lblRegistros.Size = New System.Drawing.Size(55, 17)
         Me.lblRegistros.Text = "Registros"
-        '
-        'ucFecha
-        '
-        Me.ucFecha.Location = New System.Drawing.Point(3, 3)
-        Me.ucFecha.Name = "ucFecha"
-        Me.ucFecha.Size = New System.Drawing.Size(198, 219)
-        Me.ucFecha.TabIndex = 6
         '
         'frmStock
         '
