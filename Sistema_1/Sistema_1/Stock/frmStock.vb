@@ -11,12 +11,12 @@
         Dim fId As Integer = 0
         Dim fNombre As String = ""
 
-        If txtBuscador.Text.Length Then
-            fNombre = txtBuscador.Text
-            If IsNumeric(txtBuscador.Text) Then
-                fId = CInt(txtBuscador.Text)
-            End If
-        End If
+        'If txtBuscador.Text.Length Then
+        '    fNombre = txtBuscador.Text
+        '    If IsNumeric(txtBuscador.Text) Then
+        '        fId = CInt(txtBuscador.Text)
+        '    End If
+        'End If
 
         Dim dt As DataTable = clStock.Datos(fId, fFecha, fId, fNombre)
 
@@ -118,7 +118,7 @@
 
     End Sub
 
-    Private Sub txtBuscador_TextChanged(sender As Object, e As EventArgs) Handles txtBuscador.TextChanged
+    Private Sub txtBuscador_TextChanged(sender As Object, e As EventArgs)
         Cargar_LST()
     End Sub
 

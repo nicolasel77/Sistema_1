@@ -89,6 +89,12 @@
     <Compile Include="Controles\ucFecha.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controles\ucProductos.Designer.vb">
+      <DependentUpon>ucProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucProductos.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -112,7 +118,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Productos\clsProductos.vb" />
+    <Compile Include="Clases\clsProductos.vb" />
     <Compile Include="Productos\frmProductos.Designer.vb">
       <DependentUpon>frmProductos.vb</DependentUpon>
     </Compile>
@@ -130,6 +136,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controles\ucFecha.resx">
       <DependentUpon>ucFecha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ucProductos.resx">
+      <DependentUpon>ucProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
