@@ -47,7 +47,23 @@
             lst.Items.Add(String.Format("{0}. {1}", f.Item(0), f.Item(1).ToString.Trim))
         Next
     End Sub
+    Public Function UnirStrings(ByRef a As String, ByVal b As String, Optional ByVal c As String = " AND ") As String
+        Dim s As String = a
+        If a Is Nothing Then
+            a = ""
+        End If
 
+        If a.Length > 0 Then
+            If b.Length Then
+                s = String.Format("{0} {1} {2}", a, c, b)
+            End If
+        Else
+            If b.Length Then
+                s = b
+            End If
+        End If
+        Return s
+    End Function
     'Public Sub Llenar_List(ByRef lst As ComboBox, ByVal Tabla As String, Optional ByVal ID As String = "", Optional ByVal Nombre As String = "", Optional ByVal Where As String = "", Optional ByVal Order As String = "")
     '    If Where.Length Then Where = " WHERE " & Where
     '    If Order.Length = 0 Then Order = ID
