@@ -25,11 +25,12 @@ Partial Class frmStock
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStock))
         Me.grdStock = New Grilla2.SpeedGrilla()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ucProds = New Sistema_1.ucProductos()
+        Me.ucFecha = New Sistema_1.ucFecha()
         Me.cmdFiltro = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblRegistros = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ucProds = New Sistema_1.ucProductos()
-        Me.ucFecha = New Sistema_1.ucFecha()
+        Me.cmdImprimir = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -89,6 +90,7 @@ Partial Class frmStock
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control
+        Me.SplitContainer1.Panel2.Controls.Add(Me.cmdImprimir)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ucProds)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ucFecha)
         Me.SplitContainer1.Panel2.Controls.Add(Me.cmdFiltro)
@@ -97,6 +99,25 @@ Partial Class frmStock
         Me.SplitContainer1.SplitterWidth = 8
         Me.SplitContainer1.TabIndex = 4
         '
+        'ucProds
+        '
+        Me.ucProds.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ucProds.Location = New System.Drawing.Point(3, 228)
+        Me.ucProds.Name = "ucProds"
+        Me.ucProds.Size = New System.Drawing.Size(328, 377)
+        Me.ucProds.TabIndex = 7
+        '
+        'ucFecha
+        '
+        Me.ucFecha.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ucFecha.Location = New System.Drawing.Point(3, 3)
+        Me.ucFecha.Name = "ucFecha"
+        Me.ucFecha.Size = New System.Drawing.Size(328, 219)
+        Me.ucFecha.TabIndex = 6
+        '
         'cmdFiltro
         '
         Me.cmdFiltro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -104,7 +125,7 @@ Partial Class frmStock
         Me.cmdFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmdFiltro.Location = New System.Drawing.Point(3, 611)
         Me.cmdFiltro.Name = "cmdFiltro"
-        Me.cmdFiltro.Size = New System.Drawing.Size(332, 23)
+        Me.cmdFiltro.Size = New System.Drawing.Size(155, 23)
         Me.cmdFiltro.TabIndex = 5
         Me.cmdFiltro.Text = "Filtrar"
         Me.cmdFiltro.UseVisualStyleBackColor = True
@@ -124,24 +145,15 @@ Partial Class frmStock
         Me.lblRegistros.Size = New System.Drawing.Size(55, 17)
         Me.lblRegistros.Text = "Registros"
         '
-        'ucProds
+        'cmdImprimir
         '
-        Me.ucProds.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ucProds.Location = New System.Drawing.Point(3, 228)
-        Me.ucProds.Name = "ucProds"
-        Me.ucProds.Size = New System.Drawing.Size(332, 377)
-        Me.ucProds.TabIndex = 7
-        '
-        'ucFecha
-        '
-        Me.ucFecha.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ucFecha.Location = New System.Drawing.Point(3, 3)
-        Me.ucFecha.Name = "ucFecha"
-        Me.ucFecha.Size = New System.Drawing.Size(332, 219)
-        Me.ucFecha.TabIndex = 6
+        Me.cmdImprimir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdImprimir.Location = New System.Drawing.Point(164, 611)
+        Me.cmdImprimir.Name = "cmdImprimir"
+        Me.cmdImprimir.Size = New System.Drawing.Size(167, 23)
+        Me.cmdImprimir.TabIndex = 8
+        Me.cmdImprimir.Text = "Imprimir"
+        Me.cmdImprimir.UseVisualStyleBackColor = True
         '
         'frmStock
         '
@@ -173,4 +185,5 @@ Partial Class frmStock
     Friend WithEvents cmdFiltro As Button
     Friend WithEvents ucFecha As ucFecha
     Friend WithEvents ucProds As ucProductos
+    Friend WithEvents cmdImprimir As Button
 End Class

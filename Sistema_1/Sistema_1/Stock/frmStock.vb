@@ -1,4 +1,6 @@
-﻿Public Class frmStock
+﻿Imports Excel = Microsoft.Office.Interop.Excel
+
+Public Class frmStock
     Private clStock As New clsStock
     Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim vTeclas() As Integer = {46}
@@ -128,5 +130,27 @@
 
     Private Sub ucFecha_Cambio_Fecha() Handles ucFecha.Cambio_Fecha
         Cargar_LST(ucFecha.Devolver_Cadena)
+    End Sub
+
+    Private Sub cmdImprimir_Click(sender As Object, e As EventArgs) Handles cmdImprimir.Click
+        Dim xApp As Object
+        Dim xLibros As Object
+        Dim xLibro As Object
+
+        xApp = CreateObject("excel.application")
+        xLibros = xApp.Workbooks
+        xLibros.Open(My.Computer.FileSystem.CurrentDirectory & "\Imprimir.xlsm")
+        xLibro = xApp.ActiveWorkbook
+
+        xApp.run("Imprimir", 1)
+
+        xApp.DisplayAlerts = False
+        xLibros.close
+        xLibro.close
+
+
+        xApp = Nothing
+        xLibro = Nothing
+        xLibro = Nothing
     End Sub
 End Class
